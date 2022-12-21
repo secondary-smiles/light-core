@@ -1,0 +1,16 @@
+[provides]
+name = "wget"
+dynamic = true
+default = "1.21.3"
+source = "https://ftp.gnu.org/gnu/wget/wget-{{version}}.tar.gz"
+
+[provides.install]
+cmd = """
+cd wget-{{version}}
+./configure --prefix={{binloc}}
+make install -j{{cores}}
+mv {{binloc}}/bin/wget {{binloc}}
+"""
+test = """
+./wget --help
+"""

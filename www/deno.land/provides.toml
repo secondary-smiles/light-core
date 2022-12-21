@@ -1,0 +1,3 @@
+[[provides]]
+name = "deno"
+source = "deno.land/deno-action.toml"
